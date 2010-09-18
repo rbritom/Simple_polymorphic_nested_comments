@@ -40,7 +40,7 @@ Read sequence:
     This is how you should read the comments to understand what is happening
       1- Article model, app/models/article.rb      
       2- Comment model, app/models/comment.rb
-
+      3- routes file, config/routes.rb
 
 
 /******************Please**************************/
@@ -91,3 +91,4 @@ Secuencia de lecura:
     Lee en esta secuencia para entender mejor
       1- modelo Article , app/models/article.rb
       2- modelo Comment , app/models/comment.rb
+      3- archivo de rutas, config/routes.rb
