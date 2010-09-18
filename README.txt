@@ -1,0 +1,21 @@
+﻿First of a series of projects that will serve as examples of simple Rails functionalities to new comers.
+Goals:
+Add comments to several models.
+Allow reply.
+Nesting comments.
+Add some ajax.
+
+Requirements:
+Jquery
+Rails 3.0 and up
+awesome_nested_set
+Note: at the moment awesome nested set has to be hacked to work with rails 3.0 so in this project is installed
+as a plugin, and the following lines where edited:
+#89 changed: name_scope to scope 
+#90 changed: name_scope to scope 
+#567  removed:   ", nested_set_scope.proxy_options[:conditions]"
+Setup:
+
+Migrate your database with rake db:migrate , the add come dummy data with rake db:seed.
+
+
