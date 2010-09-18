@@ -35,6 +35,17 @@ Observations:
   Never allow users to post comment without first verifying is they are humans.
   you can use recaptcha, and/or a publishing page in the admin seccion.
 
+
+Read sequence:
+    This is how you should read the comments to understand what is happening
+      1- Article model, app/models/article.rb      
+      2- Comment model, app/models/comment.rb
+
+
+
+/******************Please**************************/
+If there is a translation issue or if something is not clear notify
+
 ################
 #    Español   #
 ################
@@ -75,3 +86,8 @@ Observaciones:
 
   Nunca publiques el comentario directamente, se debe verificar primero que es un humano.
   Lo normal es usar recaptcha, y/o una pagina de publiación en la sección de administración.
+
+Secuencia de lecura:
+    Lee en esta secuencia para entender mejor
+      1- modelo Article , app/models/article.rb
+      2- modelo Comment , app/models/comment.rb
