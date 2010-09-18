@@ -16,5 +16,14 @@ as a plugin, and the following lines where edited:
 #567  removed:   ", nested_set_scope.proxy_options[:conditions]"
 Setup:
 
-Migrate your database with rake db:migrate , the add come dummy data with rake db:seed.
+Migrate your database with rake db:migrate , then add come dummy data with rake db:seed.
+
+Pendding:
+
+Commeting the code, and ajaxing the comments.
+
+Observations:
+
+Never allow users to post comment without first verifying they are humans.
+you can use recaptcha, and/or a publishing page.
 
