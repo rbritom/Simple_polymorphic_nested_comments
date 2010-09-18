@@ -1,28 +1,30 @@
 class Article < ActiveRecord::Base
-  # english
+  # English
   # has_many : creates and association to another model, that model
-  # must have a field that hold the foraign key in the form  '[parent_table]_id'
+  # must have a field that holds the foraign key in the form  '[parent_table]_id'
   # where parent_table is the name of this parent model(Article in this case) and it must end with an
   # undersore(_) and id. Doing this rails will fallow the convetion filosofy and
   # will be able to find the children of this parent model.
+  #
   # :as => commentable : in this case we are doing polymorphic associations
   # and we are using an alias for this model, that alias is commentable
   # when you read the Comment.rb you will find more details on the purpose
   # of doing this.
   #
   # Español
-  # has_many : creat una asociación de esta modelo a otro, ese otro model
-  # debe tner una columna con la clave foranea con la forma  '[table_madre]_id'
+  # has_many : crea una asociación de este modelo a otro, ese otro modelo
+  # debe tener una columna con la llave foranea con la forma  '[table_madre]_id'
   # donde tabla madre es este modelo(Article en este caso) y debe termina en
   # raya baja (_) e id. Haciendo esto rails aplica la filosofia de convención
-  # sobre configuración y sera capas de encontror los registros hijos de cada
+  # sobre configuración y sera capas de encontrar los registros hijos de cada
   # record de este modelo.
+  # 
   # :as => commentable : en este caso estamos haciendo una asociación polimorphic
   # asi que le ponemos a este modelo una alias, encontraras mas detalles del objetido
   # de esto en los comentarios del archivo Comment.rb.
   has_many :comments, :as => :commentable
 
-  # english
+  # English
   # attr_accessible: is a function that specifies what columns of the table
   # are accessible from loading params[:article]. If the form that you set to
   # create fill the params hash has a value not litest here that value wont be
