@@ -1,0 +1,17 @@
+one:
+  author: MyString
+  content: MyText
+  commentable_type: MyString
+  commentable_id: 1
+  parent_id: 1
+  lft: 1
+  rgt: 1
+
+two:
+  author: MyString
+  content: MyText
+  commentable_type: MyString
+  commentable_id: 1
+  parent_id: 1
+  lft: 1
+  rgt: 1

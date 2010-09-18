@@ -1,0 +1,28 @@
+<% title "Article" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+  <%= link_to "Destroy", @article, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", articles_path %>
+</p>
+
+
+<%= render :partial => "comments/new", :locals => { :commentable => @article }%><br/>
+<h1>Comments</h1><br/>
+<div id="comments">
+  <div class="comments_out">
+    <div class="comments_middle">
+<%= render @comments %>
+  </div>
+</div>
+</div>
+

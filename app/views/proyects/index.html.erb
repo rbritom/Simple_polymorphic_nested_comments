@@ -1,0 +1,19 @@
+<% title "Proyects" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for proyect in @proyects %>
+    <tr>
+      <td><%= proyect.name %></td>
+      <td><%= proyect.description %></td>
+      <td><%= link_to "Show", proyect %></td>
+      <td><%= link_to "Edit", edit_proyect_path(proyect) %></td>
+      <td><%= link_to "Destroy", proyect, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Proyect", new_proyect_path %></p>

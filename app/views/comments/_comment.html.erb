@@ -1,0 +1,14 @@
+
+  <div class="comments_panel">
+    <%="Created by #{comment.author} about #{time_ago_in_words(comment.created_at)} ago"%><br/><br/>
+    <%=comment.content%>
+    <br/><br/>
+    <a href="#" comment_id = <%=comment.id%> comment_author = <%=comment.author%>>Replay</a>
+    <%unless comment.descendants.empty?%>      
+        <%comment.descendants.each do |child|%>
+          <%=render :partial=>"comments/comment", :locals => {:comment => child}%>
+        <%end%>      
+    <%end%>
+  </div> 
+
+

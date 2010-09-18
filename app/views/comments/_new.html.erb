@@ -1,0 +1,9 @@
+
+  <%=form_for [commentable,Comment.new] do |f|%>
+    <%=f.hidden_field :parent_id%><br/>
+    <%=f.label :author%> :<br/>
+    <%=f.text_field :author%><br/>
+    <%=f.label :content%><br/>
+    <%=f.text_area :content, :style=>"width:320;height:80px"%><br/><br/>
+    <%=f.submit "Add comment"%>
+  <%end%>
