@@ -43,4 +43,7 @@ class Article < ActiveRecord::Base
   # y pueden ser objeto manipulacion no deseada, que permitiria, por ejemplo asignar
   #  comentarios un articulo que no corresponde y eso si es con buenas intesones.
   attr_accessible :title, :body
+
+  validates :title, :presence => true, :uniqueness => true
+
 end

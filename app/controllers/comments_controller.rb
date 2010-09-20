@@ -1,8 +1,30 @@
 class CommentsController < ApplicationController
 
-  
+  #
+  # since comments are always deplayed from inside their
+  # parent's show action , none of the actions that have
+  # templates are created. (index, show, new or edit)
+  ##
+
   def create
-    @commentable= context_object( :include => :comments )
+    # Read the context_object first.
+    #
+    # The context_objct method end up returning
+    # Article.find(5) or Proyect.find(6), depending on
+    # what the context_type and the parent_id are in the
+    # params hash. So it returns an specific record one that
+    # will be the parent in the create action.
+    #
+    @commentable= context_object()
+
+    #
+    # We scope the build method so that rails will automaticly fill
+    # the commentable_type and commentable_id values on the comments
+    # table. Remember that commentable was the alias used for comments
+    # and proyect in the models.
+    #
+    # That is all you need to create a comment inside the correspongin parent
+    #
     @comment = @commentable.comments.build(params[:comment])
     if @comment.save
       flash[:notice] = "Successfully created comment."
@@ -14,6 +36,17 @@ class CommentsController < ApplicationController
   
  
   def update
+    #
+    # Read create first
+    #
+    # The only mayor diference between this and the create
+    # action is that this time im passing ad inclure option
+    # all this does is tell active record that when it fetches
+    # the article or proyect it should also fetch its comments
+    # in the same query. The include option is passed to the
+    # context_object option who them recives it as  finder_options
+    # and uses in in the find
+    #
     @commentable= context_object( :include => :comments )
     @comment = @commentable.comments.find(params[:id])
     if @comment.update_attributes(params[:comment])
@@ -34,11 +67,32 @@ class CommentsController < ApplicationController
 
   private
 
-
+   # this function here is the reason why :constraint => {:context_type => "articles"} was added to
+   # routes file, everytime the params hash comes from withthing the comments has, the routes adds
+   # the context type to the params hash, so i access that value by reading params[:constraint] the outer
+   # value of the hash and add [:context_type] to access the inner value or the hash, that is because constrains
+   # is a hash it self and can have a group of hash, out of which [:context_type] is one, and you can pull
+   # the value of a hash inside a hash the way you pull the value of a nested array.  In each context the value
+   # return if am accesing comments from inside the articles or the proyects, so those are the 2 values i can ge
+   # but they are only string, and are in plural, so i make it singular with singularice and make a constan with
+   # contantize, that why the values become Article and Proyect, the name of the models! so now they are model
+   # name and i call find on them, but i still need the to pass and id to the find, how do i get the id ? look lower
+   # at the context_id method.
+   #
+   # *finder_options just passes down any option pass to the context_object method and uses it in the find
+   # you will see wa  this does when you read the update action.
+   #
   def context_object( *finder_options )
     params[:constraint][:context_type].singularize.classify.constantize.find( context_id, *finder_options )
   end
 
+  # this here is the action the get the id of the parent model of the polymorphic association, just as the previous
+  # method is catches where is the the comments action been called and used that to build a parent_id symbol and then
+  # uses that to get the value out of the params, becuase the params hash also carries get this value
+  # /articles/:article_id/comments  or /articles/:proyect_id/comments from the route and extracts the corresponding
+  # id of the parent in the given path, so what im doing at the end, is using context_type to build the param
+  # :article_id  or :proyect_id depending on the case
+  #
   def context_id
     params["#{ params[:constraint][:context_type].singularize }_id"]
   end
