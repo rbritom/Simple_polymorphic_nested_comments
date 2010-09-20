@@ -42,6 +42,8 @@ Read sequence:
       2- Comment model, app/models/comment.rb
       3- routes file, config/routes.rb
       4- comments controller, app/controllers/comments_controller.rb
+      5- articles controller, app/controllers/articles_controller.rb
+      6- articles show template, app/views/show.html.erb
 
 /******************Please**************************/
 If there is a translation issue or if something is not clear notify
@@ -92,4 +94,6 @@ Secuencia de lecura:
       1- modelo Article , app/models/article.rb
       2- modelo Comment , app/models/comment.rb
       3- archivo de rutas, config/routes.rb
-      4-  contorller de comentarios, app/controllers/comments_controller.rb
+      4- controllador de comentarios, app/controllers/comments_controller.rb
+      5- controllador de articles, app/controllers/articles_controller.rb
+      6- plantilla show the articles, app/views/show.html.erb

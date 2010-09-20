@@ -56,7 +56,12 @@ class CommentsController < ApplicationController
       render :action => 'edit'
     end
   end
+
   
+  # there is no need to scope the comment user the @commentable
+  # instance and the context_type since we are going to
+  # find the comment by its id which is an unique value in the database.
+  #
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy

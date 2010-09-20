@@ -5,7 +5,17 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
-    @comments = @article.comments
+    #
+    # this is the only change we need in this controller
+    # it will allow us to iterate the comment that belong
+    # to an specific @article, because we are scoping it
+    # and thank to the awesome nested set gem it will only
+    # show the comments that have parent_id = nil, this here
+    # refers to the second association that was made, the self
+    # referencial association, and root are the comment wich
+    # dont belong to any other comment.
+    #
+    @comments = @article.comments.roots
   end
   
   def new

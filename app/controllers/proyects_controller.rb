@@ -5,7 +5,7 @@ class ProyectsController < ApplicationController
   
   def show
     @proyect = Proyect.find(params[:id])
-    @comments = @article.comments
+    @comments = @article.comments.roots
   end
   
   def new
