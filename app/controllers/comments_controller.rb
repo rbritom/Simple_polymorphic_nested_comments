@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     #
     # We scope the build method so that rails will automaticly fill
     # the commentable_type and commentable_id values on the comments
-    # table. Remember that commentable was the alias used for comments
+    # table. Remember that commentable was the alias used for article
     # and proyect in the models.
     #
     # That is all you need to create a comment inside the correspongin parent
@@ -66,7 +66,13 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:notice] = "Successfully destroyed comment."
-    redirect_to comments_url
+    # :back is an alias to env[:HTTP_REFERER]
+    # and holds the page that send to this action
+    # redirecting to :back  saves us from need to
+    # use context_object to figure out how to
+    # redirect to the parent
+    #
+    redirect_to :back
   end
 
 
