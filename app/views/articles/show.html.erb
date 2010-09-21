@@ -22,12 +22,8 @@ template for the comments/new action, we are also passing the @article variable 
 calling it commentable inside the partial.
 -->
 <%= render :partial => "comments/new", :locals => { :commentable => @article }%><br/>
+
 <h1>Comments</h1><br/>
 <div id="comments">
-  <div class="comments_out">
-    <div class="comments_middle">
-<%= render @comments %>
-  </div>
+<%=render :partial => 'comments/index',:locals => {:commentable=> @article,:comments => @article.comments.roots}%>
 </div>
-</div>
-

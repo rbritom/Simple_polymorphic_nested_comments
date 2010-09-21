@@ -1,0 +1,1 @@
+$("#comments").html("<%=escape_javascript(render :partial =>"comments/index",:locals => {:commentable=> @commentable,:comments => @commentable.comments.roots})%>");

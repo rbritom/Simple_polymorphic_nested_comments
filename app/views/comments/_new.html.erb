@@ -1,5 +1,5 @@
 
-  <%=form_for [commentable,Comment.new] do |f|%>
+  <%=form_for [commentable,Comment.new], :remote => true do |f|%>
     <%=f.hidden_field :parent_id%><br/>
     <%=f.label :author%> :<br/>
     <%=f.text_field :author%><br/>
