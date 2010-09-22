@@ -7,6 +7,8 @@ $("#comment_parent_id").val($(this).attr("comment_id"));
 $($("#new_comment").live("submit",function(){
 $(".adding_comment").css("background", "url('/images/create-loader.gif')")
 $.post(this.action,$(this).serialize(),null,'script');
+$("#comment_author").val("");
+$("#comment_content").val("");
 return false;
 }));
 
