@@ -1,9 +1,8 @@
-
 <div class="comments_out"> 
   <div class="comments_middle">
-    <h2><strong>Total comments</strong> <%=commentable.comments.size%></h2>   
-    <%=will_paginate @comments%>
-    <%= render comments %>
-    <%=will_paginate @comments%>
+    <h2><strong>Total comments</strong> <%=commentable.comments.size%><div class="loading_pages">&nbsp;</div></h2>
+    <%=will_paginate comments%> 
+    <%= render comments %>    
+    <%=will_paginate comments%> 
   </div>
 </div>

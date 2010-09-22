@@ -1,1 +1,2 @@
 $("#comments").html("<%=escape_javascript(render :partial =>"comments/index",:locals => {:commentable=> @commentable,:comments => @commentable.comments.roots.order("created_at DESC").paginate( :page => params[:page]||1,:per_page => 5)})%>");
+$(".adding_comment").css("background", "none")
