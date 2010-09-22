@@ -19,5 +19,5 @@
 <%= render :partial => "comments/new",:locals => { :commentable => @proyect }%><br/>
 <h1>Comments</h1><br/>
 <div id="comments">
-<%=render :partial => 'comments/index',:locals => {:commentable=> @article,:comments => @article.comments.roots}%>
+<%=render :partial => 'comments/index',:locals => {:commentable=> @proyect,:comments => @comments}%>
 </div>

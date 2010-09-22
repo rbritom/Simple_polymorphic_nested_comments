@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
     # context_object option who them recives it as  finder_options
     # and uses in in the find
     #
-    @commentable= context_object( :include => :comments )
+    @commentable= context_object.includes(:comments)
     @comment = @commentable.comments.find(params[:id])
     if @comment.update_attributes(params[:comment])
       flash[:notice] = "Successfully updated comment."
@@ -95,8 +95,8 @@ class CommentsController < ApplicationController
    # *finder_options just passes down any option pass to the context_object method and uses it in the find
    # you will see wa  this does when you read the update action.
    #
-  def context_object( *finder_options )
-    params[:constraint][:context_type].singularize.classify.constantize.find( context_id, *finder_options )
+  def context_object
+    params[:constraint][:context_type].singularize.classify.constantize.find( context_id )
   end
 
   # this here is the action the gets the id of the parent model of the polymorphic association, just as the previous

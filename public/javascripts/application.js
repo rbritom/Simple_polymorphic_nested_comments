@@ -8,3 +8,11 @@ $($("#new_comment").live("submit",function(){
 $.post(this.action,$(this).serialize(),null,'script');
 return false;
 }));
+
+
+$(function() {
+  $(".pagination a").live("click", function() {
+    $.get(this.href, null, null, "script");
+    return false;
+  });
+});

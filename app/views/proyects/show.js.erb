@@ -1,0 +1,1 @@
+$("#comments").html("<%=escape_javascript(render :partial =>"comments/index",:locals => {:commentable=> @proyect,:comments => @proyect.comments.roots.order("created_at DESC").paginate( :page => params[:page]||1,:per_page => 5)})%>");

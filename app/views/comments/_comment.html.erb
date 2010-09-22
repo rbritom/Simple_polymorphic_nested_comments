@@ -1,9 +1,9 @@
 
   <div class="comments_panel">
-    <%="Created by #{comment.author} #{time_ago_in_words(comment.created_at)} ago"%><br/><br/>
+    <small><%="Created by #{comment.author} #{time_ago_in_words(comment.created_at)} ago "%></small><br/><br/>
     <%=comment.content%>  
     <br/><br/>
-    <a href="#" comment_id = <%=comment.id%> comment_author = <%=comment.author%>>Replay</a>
+    <a href="#" comment_id = <%=comment.id%> comment_author = <%=comment.author%>>Replay</a> | <%=link_to "Delete",polymorphic_path([comment.commentable,comment]), :confirm => "Are you sure ?", :method => :delete%>
     <%unless comment.descendants.empty?%>      
         <%comment.descendants.each do |child|%>
           <%if child.parent_id == comment.id%>        

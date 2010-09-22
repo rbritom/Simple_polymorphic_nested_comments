@@ -5,7 +5,11 @@ class ProyectsController < ApplicationController
   
   def show
     @proyect = Proyect.find(params[:id])
-    @comments = @article.comments.roots
+    @comments = @article.comments.roots.order("created_at DESC").paginate( :page => params[:page]||1,:per_page => 5)
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
   
   def new

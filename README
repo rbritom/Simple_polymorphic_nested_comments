@@ -11,20 +11,21 @@ Goals:
   Add some ajax.
 
 Requirements:
-  Jquery  (a javascript librery that makes javascript realted functions easy)
+  Jquery  (a javascript library that makes javascript related functions easy)
   Rails 3.0 and up  (previous versions will look different mainly in the routes section)
-  awesome_nested_set  (a gem /plugin that make dealing with nestind easy)
+  awesome_nested_set  (a gem /plugin that makes dealing with nestind easy)
 
 Note: at the moment awesome nested set has to be hacked to work with rails 3.0 so in this project is installed
 as a plugin, and the following lines where edited:
-  #89 changed: name_scope to scope
-  #90 changed: name_scope to scope
+  #89 changed: name_scope to scope and commented the :order options
+  #90 changed: name_scope to scope and commented the :order options
   #567  removed:   ", nested_set_scope.proxy_options[:conditions]"
 
 
 
+
 Setup:
-  First , bundle install then migrate your database with rake db:migrate , then add come dummy data with rake db:seed.
+  First , bundle install then migrate your database with rake db:migrate , then add some dummy data with rake db:seed.
 
 Pendding:
 
@@ -70,8 +71,8 @@ Requisitos:
 
 Nota: la gems awesome nested set cuando se hizo este ejemplo no estaba lista para
 rails 3 asi que hubo que alterar las siguientes lineas:
-  #89 cambie: name_scope to scope
-  #90 cambie: name_scope to scope
+  #89 cambie: name_scope a scope y comente la opcion :order
+  #90 cambie: name_scope a scope y comente la opcion :order
   #567  quite:   ", nested_set_scope.proxy_options[:conditions]"
 
 
@@ -86,7 +87,7 @@ Pendiente:
 
 Observaciones:
 
-  Nunca publiques el comentario directamente, se debe verificar primero que es un humano.
+  Nunca publiques el comentario directamente, se debe verificar primero que el vititante  es un humano.
   Lo normal es usar recaptcha, y/o una pagina de publiación en la sección de administración.
 
 Secuencia de lecura:
