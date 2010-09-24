@@ -16,7 +16,7 @@ Requirements:
   awesome_nested_set  (a gem /plugin that makes dealing with nestind easy)
 
 Note: at the moment awesome nested set has to be hacked to work with rails 3.0 so in this project is installed
-as a plugin, and the following lines where edited:
+as a plugin, and the following lines were edited:
   #89 changed: name_scope to scope and commented the :order options
   #90 changed: name_scope to scope and commented the :order options
   #567  removed:   ", nested_set_scope.proxy_options[:conditions]"

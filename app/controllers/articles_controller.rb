@@ -15,6 +15,18 @@ class ArticlesController < ApplicationController
     # referencial association, and root are the comment wich
     # dont belong to any other comment.
     #
+    # will_paginate: will paginate is very simple it uses and
+    # offset and a size to pull items in groups. The parameter page
+    # is used to calculate the current offset, for example, lets say
+    # you have this items [1,2,3,4,5,6,7,8,9], you can pull groups of
+    # numbers out of it by specifying the size and the offset.
+    #
+    # Lets say size is 3, the first pull would be , offset= 0 with size = 3
+    # and you would get [1,2,3], the second pull is , offset= size with size =3,
+    # this would return [4,5,6], the third pull would be , offset = size*2 with
+    # size = 3 and you would get [7,8,9], so at the end we have something like
+    # this, offset = size*(page-1). In will_paginate the size is called per_page.
+    #
     @comments = @article.comments.roots.order("created_at DESC").paginate( :page => params[:page]||1,:per_page => 5)
 
     respond_to do |format|
